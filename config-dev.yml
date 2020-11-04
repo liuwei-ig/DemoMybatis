@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: config-client
+
+  cloud:
+    config:
+      uri: http://localhost:4001  	#config server地址
+      profile: prod      #环境名 config-dev.yml
+      name: config		#gitee上文件名，不写默认服务名
+      label: master		#分支名称，如果不写就是默认主分支
+#暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      #base-path: / # 2.0以后 默认是 /actuator 前缀，可以在这里修改
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6001/eureka/
